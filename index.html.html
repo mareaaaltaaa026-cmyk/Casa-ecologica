@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Casa Ecológica</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#eef5ef;
+color:#073b2d;
+overflow-x:hidden;
+}
+
+/* MENU */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,0.92);
+backdrop-filter:blur(12px);
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:30px;
+font-weight:800;
+color:#0a5c44;
+}
+
+.logo img{
+width:55px;
+}
+
+nav ul{
+display:flex;
+gap:28px;
+list-style:none;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#0a5c44;
+font-weight:600;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#53b447;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+background:
+linear-gradient(rgba(0,60,30,0.55),rgba(0,60,30,0.55)),
+url('https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:120px 10% 60px 10%;
+color:white;
+}
+
+.hero-content{
+max-width:850px;
+animation:fade 1.3s ease;
+}
+
+.badge{
+display:inline-block;
+background:rgba(255,255,255,0.2);
+border:1px solid rgba(255,255,255,0.4);
+padding:14px 28px;
+border-radius:40px;
+margin-bottom:30px;
+font-weight:600;
+backdrop-filter:blur(10px);
+}
+
+.hero h1{
+font-size:95px;
+line-height:1;
+margin-bottom:30px;
+font-weight:900;
+}
+
+.hero span{
+color:#7dff4f;
+}
+
+.hero p{
+font-size:27px;
+line-height:1.7;
+margin-bottom:40px;
+max-width:760px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:20px 38px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:0.4s;
+}
+
+.btn-green{
+background:#9eff00;
+color:#093b2c;
+}
+
+.btn-green:hover{
+transform:translateY(-5px);
+}
+
+.btn-white{
+border:2px solid white;
+color:white;
+}
+
+.btn-white:hover{
+background:white;
+color:#093b2c;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:70px;
+}
+
+.stat{
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(14px);
+padding:30px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,0.25);
+}
+
+.stat h2{
+font-size:50px;
+color:#b8ff4f;
+}
+
+.stat p{
+font-size:18px;
+margin-top:8px;
+}
+
+/* SECCIONES */
+
+section{
+padding:120px 8%;
+}
+
+.section-title{
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:70px;
+line-height:1;
+margin-bottom:20px;
+color:#054b38;
+}
+
+.section-title p{
+font-size:24px;
+line-height:1.8;
+max-width:900px;
+color:#27614d;
+}
+
+/* CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+.card{
+background:white;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.5s;
+border:2px solid #d4f5da;
+}
+
+.card:hover{
+transform:translateY(-12px);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.card-content{
+padding:30px;
+}
+
+.card-content h3{
+font-size:33px;
+margin-bottom:18px;
+color:#07523d;
+}
+
+.card-content p{
+line-height:1.9;
+font-size:18px;
+color:#305b4d;
+}
+
+.card-content ul {
+list-style-position: inside;
+color: #305b4d;
+line-height: 1.8;
+font-size: 16px;
+}
+
+/* INFO */
+
+.info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+margin-top:50px;
+}
+
+.info img{
+width:100%;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+.info-text{
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.info-text h3{
+font-size:40px;
+margin-bottom:25px;
+color:#07523d;
+}
+
+.info-text p{
+line-height:2;
+font-size:19px;
+color:#2e5b4c;
+margin-bottom:18px;
+}
+
+.info-text a{
+display: block;
+color: #0a5c44;
+font-weight: 600;
+text-decoration: none;
+margin-bottom: 12px;
+transition: 0.3s;
+}
+
+.info-text a:hover{
+color: #53b447;
+text-decoration: underline;
+}
+
+/* GALERIA */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.gallery img{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:28px;
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+/* GRAFICAS */
+
+.charts{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+margin-top:50px;
+}
+
+.chart{
+background:white;
+padding:40px;
+border-radius:30px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.chart h3{
+margin-bottom:25px;
+font-size:28px;
+}
+
+.bar{
+margin-bottom:20px;
+}
+
+.bar span{
+display:block;
+margin-bottom:10px;
+font-weight:700;
+}
+
+.progress{
+width:100%;
+height:28px;
+background:#dce9df;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress div{
+height:100%;
+background:linear-gradient(90deg,#00a651,#98ff00);
+border-radius:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#063728;
+padding:70px 8%;
+color:white;
+text-align:center;
+margin-top:100px;
+}
+
+footer h2{
+font-size:45px;
+margin-bottom:20px;
+}
+
+footer p{
+font-size:20px;
+line-height:1.8;
+}
+
+/* ANIMACION */
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:60px;
+}
+
+.stats{
+grid-template-columns:1fr 1fr;
+}
+
+.info{
+grid-template-columns:1fr;
+}
+
+.section-title h2{
+font-size:50px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+padding-top:140px;
+}
+
+.hero h1{
+font-size:46px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.section-title h2{
+font-size:42px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">
+<img src="logo.png" alt="Logo Casa Ecológica">
+Casa Ecológica
+</div>
+
+<ul>
+<li><a href="#introduccion">Introducción</a></li>
+<li><a href="#acciones">Acciones</a></li>
+<li><a href="#beneficios">Beneficios</a></li>
+<li><a href="#importancia-proyecto">Importancia</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#graficas">Gráficas</a></li>
+<li><a href="#referencias">Referencias</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+
+<div class="badge">
+🌱 Proyecto Sustentable 2026
+</div>
+
+<h1>
+Casa <span>Ecológica</span><br>
+para un mundo mejor
+</h1>
+
+<p>
+Un proyecto integral de vivienda sustentable que combina energías renovables, reciclaje, cultivos hidropónicos y captación de agua para reducir el impacto ambiental y construir un futuro más verde.
+</p>
+
+<div class="buttons">
+<a href="#introduccion" class="btn btn-green">Conoce el proyecto</a>
+<a href="#galeria" class="btn btn-white">Ver galería</a>
+</div>
+
+<div class="stats">
+<div class="stat">
+<h2>60%</h2>
+<p>Menos energía</p>
+</div>
+
+<div class="stat">
+<h2>50%</h2>
+<p>Ahorro de agua</p>
+</div>
+
+<div class="stat">
+<h2>80%</h2>
+<p>Residuos reciclados</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Más sustentable</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="introduccion">
+<div class="section-title">
+<h2>Introducción</h2>
+<p>
+Las casas ecológicas representan una alternativa sustentable frente a las viviendas tradicionales. Estas construcciones utilizan recursos naturales, energía renovable y materiales amigables con el medio ambiente para disminuir la contaminación y mejorar la calidad de vida.
+</p>
+</div>
+
+<div class="info">
+<img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg" alt="Casa Ecológica">
+<div class="info-text">
+<h3>¿Qué es una casa ecológica?</h3>
+<p>
+Una casa ecológica es una vivienda diseñada para aprovechar la luz solar, reutilizar agua de lluvia, reducir el consumo eléctrico y utilizar tecnologías sustentables como paneles solares y sistemas de reciclaje.
+</p>
+<p>
+Estas viviendas ayudan a combatir el cambio climático y promueven hábitos responsables para proteger el planeta.
+</p>
+</div>
+</div>
+</section>
+
+<section id="acciones">
+<div class="section-title">
+<h2>Acciones Sustentables</h2>
+<p>
+Las acciones ecológicas ayudan a disminuir la contaminación y aprovechar mejor los recursos naturales.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg" alt="Paneles Solares">
+<div class="card-content">
+<h3>Instalar paneles solares</h3>
+<p>Los paneles solares transforman la energía solar en electricidad limpia y renovable.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg" alt="Captación de agua">
+<div class="card-content">
+<h3>Captar agua de lluvia</h3>
+<p>Permite reutilizar agua para limpieza, riego y otras actividades domésticas.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/932433/pexels-photo-932433.jpeg" alt="Reciclaje">
+<div class="card-content">
+<h3>Separar y reciclar residuos</h3>
+<p>El reciclaje disminuye la contaminación y reduce la acumulación de basura.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/2132250/pexels-photo-2132250.jpeg" alt="Huertos Hidropónicos">
+<div class="card-content">
+<h3>Crear huertos hidropónicos</h3>
+<p>Los cultivos hidropónicos producen alimentos utilizando menos agua y espacio.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/577514/pexels-photo-577514.jpeg" alt="Focos LED">
+<div class="card-content">
+<h3>Utilizar focos LED</h3>
+<p>Los focos LED consumen menos energía y duran más tiempo que los focos tradicionales.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/589/garden-greenhouse-plant-green.jpg" alt="Invernadero">
+<div class="card-content">
+<h3>Crear jardines ecológicos</h3>
+<p>Los jardines ayudan a mejorar la calidad del aire y generan espacios saludables.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="beneficios">
+<div class="section-title">
+<h2>Beneficios</h2>
+<p>
+Las casas ecológicas generan beneficios ambientales, sociales y económicos que ayudan a mejorar la calidad de vida de las personas y proteger el planeta para las futuras generaciones.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg" alt="Beneficios Ambientales">
+<div class="card-content">
+<h3>Beneficios Ambientales</h3>
+<p>Las viviendas sustentables ayudan a disminuir significativamente la contaminación ambiental mediante el uso de energías renovables y sistemas ecológicos.</p>
+<br>
+<ul>
+<li>Reducción de emisiones de CO₂.</li>
+<li>Conservación de agua potable.</li>
+<li>Disminución de residuos.</li>
+<li>Protección de la biodiversidad.</li>
+<li>Mejora de la calidad del aire.</li>
+<li>Menor uso de combustibles fósiles.</li>
+<li>Aprovechamiento de recursos.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/2132250/pexels-photo-2132250.jpeg" alt="Beneficios Sociales">
+<div class="card-content">
+<h3>Beneficios Sociales</h3>
+<p>Las casas ecológicas también generan beneficios sociales al crear espacios más saludables y promover una cultura ambiental responsable.</p>
+<br>
+<ul>
+<li>Mejora la salud y bienestar.</li>
+<li>Promueve hábitos responsables.</li>
+<li>Fortalece la comunidad.</li>
+<li>Genera espacios seguros.</li>
+<li>Educa en sustentabilidad.</li>
+<li>Fomenta estilos de vida sanos.</li>
+<li>Reduce la contaminación local.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg" alt="Beneficios Económicos">
+<div class="card-content">
+<h3>Beneficios Económicos</h3>
+<p>Aunque una casa ecológica puede requerir una inversión inicial mayor, a largo plazo permite generar importantes ahorros económicos.</p>
+<br>
+<ul>
+<li>Reducción de hasta 70% en facturas.</li>
+<li>Producción propia de alimentos.</li>
+<li>Valorización del inmueble.</li>
+<li>Acceso a subsidios ecológicos.</li>
+<li>Independencia energética.</li>
+<li>Menor gasto en mantenimiento.</li>
+<li>Uso eficiente de materiales.</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="importancia-proyecto">
+<div class="section-title">
+<h2>Importancia del Proyecto</h2>
+<p>
+El proyecto de Casa Ecológica representa una solución innovadora y sustentable frente a los problemas ambientales actuales como la contaminación, el cambio climático y el desperdicio de recursos naturales.
+</p>
+</div>
+
+<div class="info">
+<img src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg" alt="Planeta Verde">
+<div class="info-text">
+<h3>Un proyecto para transformar el futuro</h3>
+<p>Implementar el modelo de Casa Ecológica no es solo una mejora individual: es un acto de responsabilidad colectiva.</p>
+<p>Cada hogar que se suma reduce miles de kilos de CO₂ al año, ahorra cientos de miles de litros de agua y se convierte en un ejemplo vivo de que otro modo de habitar el planeta es posible.</p>
+<p>Multiplicado a escala comunitaria, este proyecto puede transformar barrios, ciudades y eventualmente el futuro mismo de nuestra especie.</p>
+<p>Además, fomenta el uso responsable de recursos naturales, impulsa la educación ambiental y demuestra que la tecnología puede utilizarse para mejorar la relación entre las personas y la naturaleza.</p>
+<p>Las casas ecológicas ayudan a crear comunidades más limpias, saludables y preparadas para enfrentar los desafíos ambientales del futuro.</p>
+</div>
+</div>
+</section>
+
+<section id="galeria">
+<div class="section-title">
+<h2>Fotos relacionadas</h2>
+<p>Imágenes reales sobre tecnologías sustentables utilizadas en casas ecológicas.</p>
+</div>
+
+<div class="gallery">
+<img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg" alt="Galería 1">
+<img src="https://images.pexels.com/photos/932433/pexels-photo-932433.jpeg" alt="Galería 2">
+<img src="https://images.pexels.com/photos/2132250/pexels-photo-2132250.jpeg" alt="Galería 3">
+<img src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg" alt="Galería 4">
+<img src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg" alt="Galería 5">
+<img src="https://images.pexels.com/photos/589/garden-greenhouse-plant-green.jpg" alt="Galería 6">
+</div>
+</section>
+
+<section id="graficas">
+<div class="section-title">
+<h2>Gráficas e impacto</h2>
+<p>Datos que muestran el impacto positivo de una casa ecológica frente a una vivienda tradicional.</p>
+</div>
+
+<div class="charts">
+
+<div class="chart">
+<h3>Ahorro de energía</h3>
+<div class="bar">
+<span>Electricidad 80%</span>
+<div class="progress"><div style="width:80%"></div></div>
+</div>
+<div class="bar">
+<span>Agua 65%</span>
+<div class="progress"><div style="width:65%"></div></div>
+</div>
+<div class="bar">
+<span>Reciclaje 90%</span>
+<div class="progress"><div style="width:90%"></div></div>
+</div>
+</div>
+
+<div class="chart">
+<h3>Impacto ambiental</h3>
+<div class="bar">
+<span>Reducción CO₂ 85%</span>
+<div class="progress"><div style="width:85%"></div></div>
+</div>
+<div class="bar">
+<span>Energía renovable 95%</span>
+<div class="progress"><div style="width:95%"></div></div>
+</div>
+<div class="bar">
+<span>Reutilización agua 70%</span>
+<div class="progress"><div style="width:70%"></div></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="referencias">
+<div class="section-title">
+<h2>Referencias</h2>
+</div>
+<div class="info-text">
+<a href="https://generacionverde.com" target="_blank">https://generacionverde.com</a>
+<a href="https://www.bbva.com" target="_blank">https://www.bbva.com</a>
+<a href="https://www.seg.gob.mx" target="_blank">https://www.seg.gob.mx</a>
+<a href="https://inarquia.es" target="_blank">https://inarquia.es</a>
+</div>
+</section>
+
+<footer>
+<h2>Casa Ecológica 🌱</h2>
+<p>Proyecto sustentable enfocado en energías renovables, reciclaje y cuidado ambiental.</p>
+</footer>
+
+</body>
+</html>
